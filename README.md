@@ -9,4 +9,5 @@ Simple docker with flask and postgresql hh.ru
    ` POSTGRES_DB: "db" имя базы
    POSTGRES_USER: "postgres" пользователь базы
    POSTGRES_PASSWORD: "123"  пароль базы"
+4.
 
