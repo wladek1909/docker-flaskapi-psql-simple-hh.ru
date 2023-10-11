@@ -1,0 +1,31 @@
+version: '3.9.5'
+
+services:
+
+  web:
+    restart: always
+    build: ./web
+    ports:
+      - 5000:5000
+    expose:
+      - "5000"
+    depends_on:
+      - postgres
+    command: >
+      sh -c "python3 main.py"
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - db-data:/var/lib/postgresql
+
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "123"
+      POSTGRES_HOST: localhost
+
+
+volumes:
+  db-data:
